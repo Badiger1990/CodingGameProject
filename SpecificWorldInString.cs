@@ -23,6 +23,6 @@ while(Length >= 0)
     Length--;
 }
         
-Console.WriteLine("Reversed string:" + temp);
+Console.WriteLine($"Reversed string: {temp}");
     }
 }
