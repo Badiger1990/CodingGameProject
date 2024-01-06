@@ -9,12 +9,15 @@ namespace CodingGameProject
         {
             Console.WriteLine("\n\nHello welcome to Dot net tutorials!!");
             Console.WriteLine("Enter your choice");
-            Console.WriteLine($"1.Swapping program\n" +
-                $"2.Armstrong number\n" +
-                $"3.Print Fibonacci series\n" +
-                $"4.Numbers using LINQ\n" +
+            Console.WriteLine($"1. Swapping program\n" +
+                $"2. Armstrong number\n" +
+                $"3. Print Fibonacci series\n" +
+                $"4. Numbers using LINQ\n" +
                 $"5. Find repeted chars\n" +
+                $"6. Multithreading program\n" +
+                $"7. Sum of digits\n" +
                 $"0.Exit application");
+
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
@@ -30,6 +33,7 @@ namespace CodingGameProject
                     Console.WriteLine("Enter a number to check Armstrong number or not");
                     int input = Convert.ToInt32(Console.ReadLine());
                     bool result = np.IsArmstrongNumber(input);
+                    Console.WriteLine("Input number is"+ input);
                     Console.WriteLine($"result is : {result}");
                     if (input != 0)
                         Main();
@@ -53,6 +57,18 @@ namespace CodingGameProject
                     Console.WriteLine("5. Find repeted chars");
                     NumberPrograms numberPgm=new NumberPrograms();
                     numberPgm.PrintRepetedCharCount("Hi How are you Naveen");
+                    Main();
+                    break;
+                case 6:
+                    Console.WriteLine("6. Multithreading program");
+                    MultithreadingProgram mtp = new MultithreadingProgram();
+                    mtp.CallSerialMethods();
+                    Main();
+                    break;
+                case 7:
+                    Console.WriteLine("7. Sum of digits");
+                    Console.WriteLine("Enter a number");
+                    NumberPrograms.SumOfDigits(Convert.ToInt32(Console.ReadLine()));
                     Main();
                     break;
                 default:

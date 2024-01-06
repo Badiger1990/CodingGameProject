@@ -1,5 +1,6 @@
 ﻿using DotNetTutorials.Interfaces;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,18 +19,27 @@ namespace DotNetTutorials
         /// <returns>True if it is armstrong number else false</returns>
         public bool IsArmstrongNumber(int number)
         {
-            int tempNumber = 0, sum = 0, rem = 0;
+            IEnumerable<int> numberRange = Enumerable.Range(1, 20);
+
+            int tempNumber = 0, sum, rem;
             tempNumber = number;
 
             Console.WriteLine($"Input number is: {number}");
-            while (number > 0)
+
+            foreach (int num in numberRange)
             {
-                rem = number % 10;
-                Console.WriteLine($"\nreminder is: {rem}");
-                sum = sum + (rem * rem * rem);
-                Console.WriteLine($"Sum is : {sum}");
-                number = number / 10;
-                Console.WriteLine($"number is: {number}");
+                number = num;
+                sum = 0;
+                rem = 0;
+                while (number > 0)
+                {
+                    rem = number % 10;
+                    Console.WriteLine($"\nreminder is: {rem}");
+                    sum = sum + (rem * rem * rem);
+                    Console.WriteLine($"Sum is : {sum}");
+                    number = number / 10;
+                    Console.WriteLine($"number is: {number}");
+                } 
             }
 
             return tempNumber == sum ? true : false;
@@ -54,6 +64,20 @@ namespace DotNetTutorials
             {
                 Console.WriteLine(ch +" : "+valuePairsString[ch]);
             }
+        }
+
+        public static void SumOfDigits(int number)
+        { //345
+            Console.WriteLine("input number is:"+number);
+            int sum=0, rem = 0;
+            int tempNum = number;
+            while (number > 0)
+            {
+                rem = number % 10;
+                sum = sum + rem;
+                number = number / 10;
+            }
+            Console.WriteLine($"Sum of {tempNum} is {sum}");
         }
     }
 }
